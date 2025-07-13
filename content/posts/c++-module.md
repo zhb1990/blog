@@ -1,10 +1,10 @@
 +++
 date = '2025-07-13T17:25:37+08:00'
 draft = true
-title = 'C++ Modules'
+title = 'C++ Module'
 +++
 
-# 通过`cmake`来构建`C++ Modules`的项目
+# 通过`cmake`来构建`C++ Module`的项目
 
 ## 编译环境
 
