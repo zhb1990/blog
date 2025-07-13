@@ -66,3 +66,22 @@ add_executable(hello main.cpp)
 ```shell
 cmake -B build -G "Ninja"
 ```
+
+> {{< collapse summary="**关于`windows`上编译**" >}}
+上述操作须在`vs2022`的环境下，可以在`Microsoft.PowerShell_profile.ps1`中增加下面的函数
+
+```shell
+function vs2022 {
+    $vsPath = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+        -version 17.0 -products * -property installationPath
+    if (-not $vsPath) {
+        Write-Error "Visual Studio 2022 not found!"
+        return
+    }
+
+    & "$vsPath\Common7\Tools\Launch-VsDevShell.ps1" -SkipAutomaticLocation -Arch amd64 -HostArch amd64
+}
+```
+
+然后在执行`cmake`命令前执行下`vs2022`。
+{{</ collapse >}}
